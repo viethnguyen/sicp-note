@@ -1,2 +1,5 @@
 # edited file 
 *~
+*.scm#
+*.scm##
+compiled/
