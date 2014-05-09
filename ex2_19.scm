@@ -23,4 +23,6 @@
 (define 1-through-4 (list 1 2 3 4))
 
 (square-list1 1-through-4) 
-; reverse order because 
+(square-list2 1-through-4)
+; square-list1 reverses order because of the reverse cons operation
+; square-list2 fixed that order but cons will make a list of two elements: a list and a normal element
