@@ -17,7 +17,7 @@
       null
       (cdr x)))
 
-(define (first-denmination x)
+(define (first-denomination x)
   (if (null? x)
       null
       (car x)))
@@ -25,4 +25,4 @@
 (define (no-more? x)
   (null? x))
 
-(cc 100 us-coins)
+(cc 6 us-coins)
