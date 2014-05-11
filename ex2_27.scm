@@ -44,3 +44,22 @@
  (total-weight level-1-mobile) 
  (total-weight level-2-mobile) 
  (total-weight level-3-mobile) 
+
+(define (is-balanced? m)
+  (let ((left (left-branch m))
+        (right (right-branch m)))
+    (and (= (branch-torque left)
+            (branch-torque right))
+         (branch-balaned? left)
+         (branch-balaned? right))))
+
+(define (branch-torque branch)
+  (* (branch-weight branch)
+     (branch-length branch)))
+
+(define (branch-balaned? branch)
+  (let ((s (branch-structure branch)))
+    (if (structure-is-mobile? s)
+        (is-balanced? s)
+        true)))
+
