@@ -50,16 +50,27 @@
         (right (right-branch m)))
     (and (= (branch-torque left)
             (branch-torque right))
-         (branch-balaned? left)
-         (branch-balaned? right))))
+         (branch-balanced? left)
+         (branch-balanced? right))))
 
 (define (branch-torque branch)
   (* (branch-weight branch)
      (branch-length branch)))
 
-(define (branch-balaned? branch)
+(define (branch-balanced? branch)
   (let ((s (branch-structure branch)))
-    (if (structure-is-mobile? s)
+    (if (is-mobile? s)
         (is-balanced? s)
         true)))
 
+;; Test
+(branch-balanced? (make-branch 2 3))
+(branch-torque (make-branch 2 3))
+(is-balanced? (make-mobile (make-branch 2 3)
+                           (make-branch 3 2 )))
+ (is-balanced? level-1-mobile) 
+ (is-balanced? level-2-mobile) 
+ (is-balanced? level-3-mobile) 
+  
+ (is-balanced? (make-mobile (make-branch 10 1000) 
+                         (make-branch 1 level-3-mobile))) 
